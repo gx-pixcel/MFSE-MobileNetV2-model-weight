@@ -10,7 +10,7 @@ agronomic priors.
 ## Files
 
 - `MFSE-MobileNetV2_best.pth`: Trained model state dictionary.
-- `normalization_parameters.json`: Normalization parameters used during training.
+- `Parameters.json`: Parameters used during training.
 - `testing_instructions.md`: Instructions for preparing inputs and testing the model.
 
 ## Model inputs
