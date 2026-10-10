@@ -1,0 +1,55 @@
+{
+  "model_name": "MFSE-MobileNetV2",
+  "input_patch_size": [32, 32],
+  "channel_order": [
+    "green",
+    "red",
+    "red_edge",
+    "near_infrared",
+    "dsm"
+  ],
+  "image_normalization": {
+    "method": "channel_wise_standardization",
+    "mean": [0.485, 0.485, 0.485, 0.485, 0.485],
+    "std": [0.229, 0.229, 0.229, 0.229, 0.229],
+    "formula": "(x - mean) / std"
+  },
+  "dsm_preprocessing": {
+    "method": "per_patch_min_max",
+    "formula": "(x - patch_min) / (patch_max - patch_min)",
+    "range": [0.0, 1.0],
+    "parameters_are_patch_specific": true
+  },
+  "lai_normalization": {
+    "method": "fixed_min_max",
+    "offset": 0.3,
+    "scale": 5.7,
+    "formula": "(LAI - 0.3) / 5.7",
+    "round_decimals": 2
+  },
+  "phenology_normalization": {
+    "method": "stage_code_scaling",
+    "divisor": 10.0,
+    "formula": "stage_code / 10",
+    "round_decimals": 2,
+    "stage_mapping": {
+      "VE": 0,
+      "V1": 1,
+      "V3": 2,
+      "V6": 3,
+      "V12": 4,
+      "VT": 5,
+      "R1": 6,
+      "R2": 7,
+      "R3": 8,
+      "R5": 9,
+      "R6": 10
+    }
+  },
+  "target": {
+    "name": "above_ground_biomass",
+    "normalization": "none",
+    "inverse_transformation_required": false,
+    "unit": "g/m2"
+  }
+}
