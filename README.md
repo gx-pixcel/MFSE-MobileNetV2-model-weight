@@ -9,7 +9,7 @@ agronomic priors.
 
 ## Files
 
-- `MFSE-MobileNetV2_best.pth`: Trained model state dictionary.
+- `mobelnet_v2_se_g_lai_dsm_pp_20232024zp.pth`: Trained model state dictionary.
 - `Parameters.json`: Parameters used during training.
 - `testing_instructions.md`: Instructions for preparing inputs and testing the model.
 
